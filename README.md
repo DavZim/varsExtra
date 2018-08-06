@@ -3,7 +3,7 @@
 
 # varsExtra
 
-The goal of varsExtra is to …
+The goal of varsExtra is to make it easier to export vars-results.
 
 ## Installation
 
@@ -121,6 +121,8 @@ print(var_table)
 #> \multicolumn{9}{l}{Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1}\\
 #> \end{tabular}
 ```
+
+which, when rendered looks like this ![example table](table_example.png)
 
 # Plots
 

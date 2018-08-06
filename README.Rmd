@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 # varsExtra
 
-The goal of varsExtra is to ...
+The goal of varsExtra is to make it easier to export vars-results.
 
 ## Installation
 
@@ -69,6 +69,9 @@ writeLines(table1, "mytable.tex")
 var_table <- tabulize(varres, format = "latex")
 print(var_table)
 ```
+
+which, when rendered looks like this 
+![example table](table_example.png)
 
 
 
