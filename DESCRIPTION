@@ -1,0 +1,22 @@
+Package: varsExtra
+Type: Package
+Title: Exports vars output to table and pdf
+Version: 0.1.0
+Author: David Zimmermann
+Maintainer: David Zimmermann <david_j_zimmermann@hotmail.com>
+Description: Exports vars::VAR objects to table or vars::irf objects to ggplot
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Imports: 
+    ggplot2,
+    vars,
+    kableExtra,
+    dplyr,
+    knitr,
+    tidyr,
+    stringr
+Suggests: 
+    testthat

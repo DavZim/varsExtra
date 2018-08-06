@@ -1,0 +1,90 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# varsExtra
+
+The goal of varsExtra is to ...
+
+## Installation
+
+You can install the development version of varsExtra with:
+
+``` r
+install.packages("devtools")
+devtools::install_github("DavZim/varsExtra")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(varsExtra)
+library(vars)
+library(ggplot2)
+# set a theme for all plots
+theme_set(theme_light())
+
+# load some example data and perform a VAR
+data(Canada)
+
+# calculate the VAR
+varres <- VAR(Canada, lag = 2, type = "none")
+
+# calculate an Impulse Resonse Function
+irfres <- irf(varres)
+```
+
+# Flatten the Results into a table
+```{r flatten}
+flatten_var(varres)
+```
+
+`varsExtra` allows you to export the results in table as well as plot format.
+An easy export would look like this:
+
+```{r ex1, eval=F}
+plot1 <- ggfy(varres)
+ggsave("myplot.pdf", plot1)
+
+table1 <- tabulize(varres, format = "latex")
+writeLines(table1, "mytable.tex")
+```
+
+
+
+# Tables
+```{r tab1}
+var_table <- tabulize(varres, format = "latex")
+print(var_table)
+```
+
+
+
+# Plots
+## Plot a VAR result
+```{r fig1, fig.height=5}
+ggfy(varres)
+```
+
+## Plot an Impules-Response Function
+```{r irf, fig.width=7, fig.height=7}
+ggfy(irfres)
+```
+
+# Additionals
+
+Many functions have additional functionality, see the help-files for more information.
+
+If you want need more functionality, or find a bug, you are more than welcome to open an issue or open a pull request.
