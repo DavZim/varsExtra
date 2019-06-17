@@ -51,20 +51,20 @@ ggfy_varest <- function(x, single_plot, plot) {
   vals <- x$datamat %>%
     dplyr::as_data_frame() %>%
     dplyr::select(-dplyr::matches("\\.l[0-9]+")) %>%
-    dplyr::mutate(type = "data", t = 1:n()) %>%
+    dplyr::mutate(type = "data", t = 1:dplyr::n()) %>%
     tidyr::gather(key = "var", value = "value", -type, -t)
 
   ypred <- lapply(1:length(x$varresult), function(i) {
     dplyr::data_frame(value = as.numeric(fitted(x$varresult[[i]]))) %>%
       dplyr::mutate(type = "fitted",
-                    t = 1:n(),
+                    t = 1:dplyr::n(),
                     var = names(x$varresult)[i])
   }) %>% dplyr::bind_rows()
 
   resid <- lapply(1:length(x$varresult), function(i) {
     dplyr::data_frame(value = as.numeric(resid(x$varresult[[i]]))) %>%
       dplyr::mutate(type = "residuals",
-                    t = 1:n(),
+                    t = 1:dplyr::n(),
                     var = names(x$varresult)[i])
   }) %>% dplyr::bind_rows()
 
